@@ -58,7 +58,7 @@
 
 ### 三、效果展示
 
-![](./Assets/ldd_480.mov)
+![](./Assets/ldd.gif)
 
 
 

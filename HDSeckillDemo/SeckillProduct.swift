@@ -11,7 +11,7 @@ import ActivityKit
 struct SeckillProductAttributes: ActivityAttributes {
     typealias SeckillProductState = ContentState
     public struct ContentState: Codable, Hashable {
-        var isSeckill: Bool
+        var seckillFinished: Bool
     }
     
     let productId: String

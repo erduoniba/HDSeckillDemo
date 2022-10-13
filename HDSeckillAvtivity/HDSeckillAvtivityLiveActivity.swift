@@ -38,9 +38,14 @@ struct HDSeckillAvtivityLiveActivity: Widget {
                     Image(systemName: context.attributes.image).multilineTextAlignment(.center)
                 }
                 DynamicIslandExpandedRegion(.center) {
-                    // 这里的url一定记得需要中文编码
-                    let url = "hdSeckill://seckill?productId=\(context.attributes.productId)&name=\(context.attributes.name)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-                    Link("立即购买", destination: URL(string: url)!).foregroundColor(.red).font(.system(size: 24, weight: .bold))
+                    if !context.state.seckillFinished {
+                        // 这里的url一定记得需要中文编码
+                        let url = "hdSeckill://seckill?productId=\(context.attributes.productId)&name=\(context.attributes.name)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+                        Link("立即购买", destination: URL(string: url)!).foregroundColor(.red).font(.system(size: 24, weight: .bold))
+                    }
+                    else {
+                        Text("商品无货").font(.largeTitle).multilineTextAlignment(.center)
+                    }
                 }
                 DynamicIslandExpandedRegion(.bottom) {
                     VStack(alignment: .center, content: {

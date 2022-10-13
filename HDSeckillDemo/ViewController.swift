@@ -81,9 +81,9 @@ class ViewController: UIViewController {
         logToTextView(log: "开始预约购买\(product.name)")
         do {
             // 初始化状态，ContentState是可变的对象
-            let initState = SeckillProductAttributes.ContentState(isSeckill: true)
+            let initState = SeckillProductAttributes.ContentState(seckillFinished: false)
             // 初始化状态，这里是不变的数据
-            let activity = try Activity.request(attributes: product, contentState: initState)
+            let activity = try Activity.request(attributes: product, contentState: initState, pushType: .token)
             logToTextView(log: "activityId: \(activity.id)")
             sender.setTitle("已预约", for: .normal)
             // 将商品id和活动id关联起来，方便查询及取消操作

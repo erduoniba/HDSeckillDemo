@@ -1,0 +1,16 @@
+{
+    "aps":{
+        "timestamp":1168364460,
+        "event":"update",
+        "content-state":{
+            "isSeckill": true,
+            "productState": false
+        },
+        "alert":{
+            "title":"Delivery Update",
+            "body":"Your pizza order will arrive soon.",
+            "sound":"example.aiff"
+        }
+    },
+    "Simulator Target Bundle": "com.harry.toolbardemo.HDSeckillDemo.HDSeckillAvtivity"
+}

@@ -1,0 +1,17 @@
+{
+    "aps":{
+        "timestamp":1168364460,
+        "event":"update",
+        "content-state":{
+            "seckillFinished": true,
+        },
+        "alert":{
+            "title":"商品已经被抢光了",
+            "body":"商品已经被抢光了，下次早点来",
+            "sound":"example.aiff"
+        }
+    },
+    "apns-push-type": "liveactivity",
+    "Simulator Target Bundle": "com.harry.toolbardemo.HDSeckillDemo",
+    "apns-topic": "com.harry.toolbardemo.HDSeckillDemo.push-type.liveactivity"
+}

@@ -50,6 +50,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D9C4628D28F71A2C00AF26EF /* HDSeckillDemoDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HDSeckillDemoDebug.entitlements; sourceTree = "<group>"; };
+		D9C4628E28F721E700AF26EF /* HDSeckillAvtivityExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HDSeckillAvtivityExtensionDebug.entitlements; sourceTree = "<group>"; };
 		D9CAB36D28F5545B0030034F /* HDSeckillDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDSeckillDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CAB37028F5545C0030034F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9CAB37228F5545C0030034F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		D9CAB36428F5545B0030034F = {
 			isa = PBXGroup;
 			children = (
+				D9C4628E28F721E700AF26EF /* HDSeckillAvtivityExtensionDebug.entitlements */,
 				D9CAB36F28F5545B0030034F /* HDSeckillDemo */,
 				D9CAB39028F558550030034F /* HDSeckillAvtivity */,
 				D9CAB38B28F558550030034F /* Frameworks */,
@@ -111,6 +114,7 @@
 		D9CAB36F28F5545B0030034F /* HDSeckillDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D9C4628D28F71A2C00AF26EF /* HDSeckillDemoDebug.entitlements */,
 				D9CAB37028F5545C0030034F /* AppDelegate.swift */,
 				D9CAB37228F5545C0030034F /* SceneDelegate.swift */,
 				D9CAB37428F5545C0030034F /* ViewController.swift */,
@@ -415,10 +419,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HDSeckillDemo/HDSeckillDemoDebug.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TKRM4J3XJV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HDSeckillDemo/Info.plist;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -431,6 +439,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.harry.toolbardemo.HDSeckillDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -447,6 +456,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HDSeckillDemo/Info.plist;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -470,8 +480,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = HDSeckillAvtivityExtensionDebug.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TKRM4J3XJV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HDSeckillAvtivity/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = HDSeckillAvtivity;
@@ -484,6 +497,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.harry.toolbardemo.HDSeckillDemo.HDSeckillAvtivity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

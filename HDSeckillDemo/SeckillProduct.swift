@@ -64,8 +64,8 @@ struct ActivityBrigde {
     
     public static func disposeNotifiMessage(userInfo: [AnyHashable: Any]) {
         if let aps = userInfo["aps"] as? [String: Any] {
-            if let content = aps["content-state"] as? [String: Any] {
-                if let productId = content["productId"] as? String, let seckillFinished = content["seckillFinished"] as? Bool {
+            if let content = aps["content-state"] as? [String: Any], let alert = aps["alert"] as? [String: Any] {
+                if let productId = alert["productId"] as? String, let seckillFinished = content["seckillFinished"] as? Bool {
                     let activityId = SeckillDatamanager.getSeckillActivityId(productId: productId)
                     for activity in Activity<SeckillProductAttributes>.activities where activityId == activity.id {
                         let updateAtt = SeckillProductAttributes.ContentState(seckillFinished: seckillFinished)

@@ -4,6 +4,7 @@
         "event":"update",
         "content-state":{
             "seckillFinished": true,
+            "productId": "2022101101"
         },
         "alert":{
             "title":"商品已经被抢光了",

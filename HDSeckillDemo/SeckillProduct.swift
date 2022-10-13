@@ -61,4 +61,60 @@ struct ActivityBrigde {
         
         return true
     }
+    
+    public static func disposeNotifiMessage(userInfo: [AnyHashable: Any]) {
+        if let aps = userInfo["aps"] as? [String: Any] {
+            if let content = aps["content-state"] as? [String: Any] {
+                if let productId = content["productId"] as? String, let seckillFinished = content["seckillFinished"] as? Bool {
+                    let activityId = SeckillDatamanager.getSeckillActivityId(productId: productId)
+                    for activity in Activity<SeckillProductAttributes>.activities where activityId == activity.id {
+                        let updateAtt = SeckillProductAttributes.ContentState(seckillFinished: seckillFinished)
+                        Task {
+                            await activity.update(using: updateAtt)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct SeckillDatamanager {
+    // 保留商品的预约状态，key是商品id，value是activity的id
+    static let seckillProductIds = "com.harry.toolbardemo.seckillProductIds"
+    
+    static func checkIsSeckill(productId: String) -> Bool {
+        if let ids = UserDefaults.standard.value(forKey: SeckillDatamanager.seckillProductIds) as? [String: String] {
+            // 本地缓存包含该商品ID，并且系统的Activity依旧存在
+            if ids.keys.contains(productId) {
+                for activity in Activity<SeckillProductAttributes>.activities where activity.id == ids[productId] {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    static func saveSeckillState(productId: String, activityId: String) {
+        var ids = [String: String]()
+        if let tempIds = UserDefaults.standard.value(forKey: SeckillDatamanager.seckillProductIds) as? [String: String] {
+            ids = tempIds
+        }
+        ids[productId] = activityId
+        UserDefaults.standard.set(ids, forKey: SeckillDatamanager.seckillProductIds)
+    }
+    
+    static func getSeckillActivityId(productId: String) -> String? {
+        if let ids = UserDefaults.standard.value(forKey: SeckillDatamanager.seckillProductIds) as? [String: String] {
+            return ids[productId]
+        }
+        return nil
+    }
+    
+    static func removeSeckillActivityId(productId: String) {
+        if var ids = UserDefaults.standard.value(forKey: SeckillDatamanager.seckillProductIds) as? [String: String] {
+            ids.removeValue(forKey: productId)
+            UserDefaults.standard.set(ids, forKey: SeckillDatamanager.seckillProductIds)
+        }
+    }
 }

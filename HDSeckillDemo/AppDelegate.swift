@@ -67,11 +67,13 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     // 通知step4 收到后台点击进入App的推送消息
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         debugPrint("通知step4 收到后台点击进入App的推送消息: \(response.notification.request.content.userInfo)")
+        ActivityBrigde.disposeNotifiMessage(userInfo: response.notification.request.content.userInfo)
         completionHandler()
     }
     
     // 通知step4 收到前台的推送消息
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         debugPrint("通知step4 收到前台的推送消息: \(notification.request.content.userInfo)")
+        ActivityBrigde.disposeNotifiMessage(userInfo: notification.request.content.userInfo)
     }
 }

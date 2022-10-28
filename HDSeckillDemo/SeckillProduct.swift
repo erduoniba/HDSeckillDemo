@@ -12,6 +12,7 @@ struct SeckillProductAttributes: ActivityAttributes {
     typealias SeckillProductState = ContentState
     public struct ContentState: Codable, Hashable {
         var seckillFinished: Bool
+        var remoteImage: Data?
     }
     
     let productId: String

@@ -394,6 +394,21 @@ extension ViewController {
 
 整体的开发成本还是很低，基本上按照后文有几篇优秀的博客操作即可完成属于自己想法的灵动岛。之前没有接触过 `Widget` 和 `SwiftUI` 开发的iOS同学也不用担心。相信在不同类型的应用中，大家肯定也能够找到属于自己的灵感给用户更高的体验感。
 
+**开发过程中的一些小技巧**
+
+```swift
+// 1、在SwiftUI的widget打印
+// https://stackoverflow.com/questions/69433485/type-cannot-conform-to-view
+ActivityConfiguration(for: SeckillProductAttributes.self) { context in
+	// 小技巧：使用该方式进行日志打印
+	let _ = debugPrint("context: \(context.attributes)")
+}
+
+// 2、对Widget工程进行断点调试（直接运行主工程即可）
+// https://blog.csdn.net/qq_19484963/article/details/79637872
+Xcode的菜单栏中，选择 Debug-Attach to Process-选择对应的Widget即可
+```
+
 本文涉及到的代码地址为 [HDSeckillDemo](https://github.com/erduoniba/HDSeckillDemo) 欢迎大家 🌟Star 🌟
 
 

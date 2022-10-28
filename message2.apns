@@ -3,14 +3,16 @@
         "timestamp":1168364460,
         "event":"update",
         "content-state":{
-            "isSeckill": true,
-            "productState": false
+            "seckillFinished": true
         },
         "alert":{
-            "title":"Delivery Update",
-            "body":"Your pizza order will arrive soon.",
+            "productId": "2022101101",
+            "title":"商品已经被抢光了",
+            "body":"商品已经被抢光了，下次早点来",
             "sound":"example.aiff"
         }
     },
-    "Simulator Target Bundle": "com.harry.toolbardemo.HDSeckillDemo.HDSeckillAvtivity"
+    "Simulator Target Bundle": "com.harry.toolbardemo.HDSeckillDemo.HDSeckillAvtivity",
+    "apns-push-type": "liveactivity",
+    "apns-topic": "com.harry.toolbardemo.HDSeckillDemo.push-type.liveactivity"
 }

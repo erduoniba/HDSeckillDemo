@@ -11,6 +11,7 @@ import SwiftUI
 @main
 struct HDSeckillAvtivityBundle: WidgetBundle {
     var body: some Widget {
+        HDSeckillAvtivity()
         HDSeckillAvtivityLiveActivity()
     }
 }

@@ -16,8 +16,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var seckillButton2: UIButton!
     
     @IBOutlet weak var logTextView: UITextView!
+    
+    private var remoteImageData: Data? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.fetchRemoteImage(urlString: "https://mmbiz.qlogo.cn/mmbiz_png/dTZZ7XS8ibTphnEzzVjvTuja1WQeGsCPpe0C8ibEwsTNz1ewCWNjECGfzwXRP224lVk3WgNRqe8Gt24e868Yewibg/0?wx_fmt=png")
         
         initProducts()
         
@@ -81,7 +86,7 @@ class ViewController: UIViewController {
         logToTextView(log: "开始预约购买\(product.name)")
         do {
             // 初始化状态，ContentState是可变的对象
-            let initState = SeckillProductAttributes.ContentState(seckillFinished: false)
+            let initState = SeckillProductAttributes.ContentState(seckillFinished: false, remoteImage: self.remoteImageData)
             // 初始化状态，这里是不变的数据
             let activity = try Activity.request(attributes: product, contentState: initState, pushType: .token)
             logToTextView(log: "activityId: \(activity.id)")
@@ -108,5 +113,14 @@ extension ViewController {
         debugPrint(log);
         logTextView.text.append("\(log) \n")
         logTextView.scrollRectToVisible(CGRect(x: 0, y: logTextView.contentSize.height - 10, width: logTextView.contentSize.width, height: 10), animated: true)
+    }
+    
+    func fetchRemoteImage(urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url){ (data, response, error) in
+            if let imageData = data {
+                self.remoteImageData = imageData
+            }
+        }.resume()
     }
 }

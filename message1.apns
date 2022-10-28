@@ -3,7 +3,7 @@
         "timestamp":1168364460,
         "event":"update",
         "content-state":{
-            "seckillFinished": true,
+            "seckillFinished": true
         },
         "alert":{
             "productId": "2022101101",
@@ -12,7 +12,7 @@
             "sound":"example.aiff"
         }
     },
-    "apns-push-type": "liveactivity",
     "Simulator Target Bundle": "com.harry.toolbardemo.HDSeckillDemo",
+    "apns-push-type": "liveactivity",
     "apns-topic": "com.harry.toolbardemo.HDSeckillDemo.push-type.liveactivity"
 }

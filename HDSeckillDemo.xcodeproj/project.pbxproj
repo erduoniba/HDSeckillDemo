@@ -52,6 +52,8 @@
 /* Begin PBXFileReference section */
 		D9C4628D28F71A2C00AF26EF /* HDSeckillDemoDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HDSeckillDemoDebug.entitlements; sourceTree = "<group>"; };
 		D9C4628E28F721E700AF26EF /* HDSeckillAvtivityExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HDSeckillAvtivityExtensionDebug.entitlements; sourceTree = "<group>"; };
+		D9C4629428F7EC2300AF26EF /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		D9C4629628F7EC2300AF26EF /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		D9CAB36D28F5545B0030034F /* HDSeckillDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HDSeckillDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CAB37028F5545C0030034F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9CAB37228F5545C0030034F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,8 @@
 			children = (
 				D9CAB38C28F558550030034F /* WidgetKit.framework */,
 				D9CAB38E28F558550030034F /* SwiftUI.framework */,
+				D9C4629428F7EC2300AF26EF /* UserNotifications.framework */,
+				D9C4629628F7EC2300AF26EF /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

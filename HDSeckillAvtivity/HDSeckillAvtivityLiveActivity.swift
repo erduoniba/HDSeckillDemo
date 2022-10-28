@@ -12,6 +12,8 @@ import SwiftUI
 struct HDSeckillAvtivityLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: SeckillProductAttributes.self) { context in
+            // 小技巧：使用该方式进行日志打印
+            let _ = debugPrint("context: \(context.attributes)")
             // 锁屏之后，显示的桌面通知栏位置，这里可以做相对复杂的布局
             VStack {
                 Text("Hello").multilineTextAlignment(.center)
@@ -46,6 +48,9 @@ struct HDSeckillAvtivityLiveActivity: Widget {
                     else {
                         Text("商品无货").font(.largeTitle).multilineTextAlignment(.center)
                     }
+                    if let data = context.state.remoteImage, let image = UIImage(data: data) {
+                        Image(uiImage: image)
+                    }
                 }
                 DynamicIslandExpandedRegion(.bottom) {
                     VStack(alignment: .center, content: {
@@ -73,5 +78,28 @@ struct HDSeckillAvtivityLiveActivity: Widget {
             .widgetURL(URL(string: "http://www.apple.com"))
             .keylineTint(Color.red)
         }
+    }
+}
+
+struct NewsItemRow: View {
+    @State private var remoteImage: UIImage? = nil
+    let placehoulder = UIImage(named: "zyg100")!
+    
+    var body: some View {
+        Image(uiImage: self.remoteImage ?? placehoulder)
+            .onAppear() {
+                self.fetchRemoteImage(urlString: "https://mmbiz.qlogo.cn/mmbiz_png/dTZZ7XS8ibTphnEzzVjvTuja1WQeGsCPpe0C8ibEwsTNz1ewCWNjECGfzwXRP224lVk3WgNRqe8Gt24e868Yewibg/0?wx_fmt=png")
+            }
+        
+//        UIImage(data: <#T##Data#>)
+    }
+    
+    func fetchRemoteImage(urlString: String) {
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url){ (data, response, error) in
+            if let imageData = data, let image = UIImage(data: imageData) {
+                self.remoteImage = image
+            }
+        }.resume()
     }
 }
